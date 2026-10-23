@@ -1,0 +1,114 @@
+x-runtime: &runtime
+  build: .
+  init: true
+  environment: &env
+    DATABASE_URL: postgresql://generation:generation@db:5432/generation
+    WEBHOOK_SECRET: ${WEBHOOK_SECRET:-local-webhook-secret-change-me}
+    ADMIN_KEY: ${ADMIN_KEY:-local-admin-key-change-me}
+    PUBLIC_BASE_URL: http://api:8000
+    ALPHA_URL: http://alpha:8000
+    BETA_URL: http://beta:8000
+    PROVIDER_TIMEOUT: ${PROVIDER_TIMEOUT:-60}
+    HTTP_TIMEOUT: ${HTTP_TIMEOUT:-5}
+    LEASE_SECONDS: ${LEASE_SECONDS:-15}
+    POLL_INTERVAL: ${POLL_INTERVAL:-0.25}
+    DEMO_ENABLED: ${DEMO_ENABLED:-true}
+services:
+  db:
+    image: postgres:17-bookworm
+    environment:
+      POSTGRES_USER: generation
+      POSTGRES_PASSWORD: generation
+      POSTGRES_DB: generation
+    ports: ["127.0.0.1:5432:5432"]
+    volumes: ["pgdata:/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U generation -d generation"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+  migrate:
+    <<: *runtime
+    command: ["alembic", "upgrade", "head"]
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    <<: *runtime
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "4"]
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health/ready')"]
+      interval: 3s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+  alpha:
+    <<: *runtime
+    environment:
+      <<: *env
+      PROVIDER_NAME: alpha
+    command: ["uvicorn", "providers.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports: ["127.0.0.1:8001:8000"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+  beta:
+    <<: *runtime
+    environment:
+      <<: *env
+      PROVIDER_NAME: beta
+    command: ["uvicorn", "providers.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports: ["127.0.0.1:8002:8000"]
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+  test-db:
+    image: postgres:17-bookworm
+    profiles: ["test"]
+    environment:
+      POSTGRES_USER: generation
+      POSTGRES_PASSWORD: generation
+      POSTGRES_DB: generation_test
+    tmpfs: ["/var/lib/postgresql/data"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U generation -d generation_test"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
+  tests:
+    <<: *runtime
+    profiles: ["test"]
+    environment:
+      <<: *env
+      DATABASE_URL: postgresql://generation:generation@test-db:5432/generation_test
+      TEST_DATABASE_URL: postgresql://generation:generation@test-db:5432/generation_test
+      ALLOW_TEST_DATABASE_RESET: "1"
+      RUN_BACKGROUND: "false"
+    command: ["sh", "-c", "alembic upgrade head && pytest tests/unit tests/integration -q"]
+    depends_on:
+      test-db: {condition: service_healthy}
+  e2e:
+    <<: *runtime
+    profiles: ["e2e"]
+    environment:
+      <<: *env
+      E2E_BASE_URL: http://api:8000
+    command: ["pytest", "tests/e2e", "-q"]
+    depends_on:
+      api: {condition: service_healthy}
+      alpha: {condition: service_healthy}
+      beta: {condition: service_healthy}
+volumes:
+  pgdata:

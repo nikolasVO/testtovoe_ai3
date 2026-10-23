@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Failure Lab · Generation Orchestrator</title>
+<link rel="stylesheet" href="/demo/assets/style.css"></head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+  <a class="brand" href="/demo"><span class="brand-mark">g/</span><span>generation<span class="brand-sub">ORCHESTRATOR</span></span></a>
+  <div class="sidebar-label">ENGINEERING WORKSPACE</div>
+  <a class="nav active" href="/demo"><span class="nav-icon">◇</span>Failure Lab<span class="pill">LOCAL</span></a>
+  <a class="nav" href="/docs" target="_blank" rel="noopener"><span class="nav-icon">⌘</span>API reference<span class="arrow">↗</span></a>
+  <a class="nav" href="/metrics" target="_blank" rel="noopener"><span class="nav-icon">≋</span>Metrics<span class="arrow">↗</span></a>
+  <div class="sidebar-note"><span class="status-dot" id="health-dot"></span><span id="health">Проверяем соединение</span><small>PostgreSQL · 4 API workers<br>Durable outbox · HMAC</small></div>
+</aside>
+<main>
+  <header><div class="breadcrumb">WORKSPACE <span>/</span> RESILIENCE</div><span class="version">v1.0 / local sandbox</span></header>
+  <section class="heading"><div><div class="eyebrow">BREAK IT. VERIFY IT.</div><h1>Failure Lab<span>.</span></h1><p>Провоцируем сбои. Проверяем, что токены не потерялись.</p></div><div class="system-tag"><span class="tiny-square"></span> LIVE DATABASE</div></section>
+  <section class="controls card">
+    <div class="section-heading"><span class="number">01</span><h2>Выберите сценарий</h2><span class="muted small">Каждый запуск изолирован</span></div>
+    <div class="scenario-grid" id="scenarios">
+      <button class="scenario selected" data-value="fallback"><span class="scenario-icon">⇢</span><strong>Provider fallback</strong><small>Alpha 503 → Beta completed</small></button>
+      <button class="scenario" data-value="duplicate_payment"><span class="scenario-icon">×20</span><strong>Повторная оплата</strong><small>20 вебхуков → 1 начисление</small></button>
+      <button class="scenario" data-value="duplicate_refund"><span class="scenario-icon">×10</span><strong>Повторный отказ</strong><small>10 вебхуков → 1 возврат</small></button>
+      <button class="scenario" data-value="late"><span class="scenario-icon">◷</span><strong>Поздний результат</strong><small>Timeout → refund → ignored</small></button>
+    </div>
+    <div class="control-footer"><label class="extra-label">Другие проверки<select id="extra"><option value="">Выбрать…</option><option value="success">Успешная генерация</option><option value="moderation">Модерация / skip leg</option><option value="payload">Невалидный payload</option><option value="silent">Провайдер молчит</option><option value="sync_timeout">Таймаут POST /tasks</option></select></label><div class="key-wrap"><label for="admin-key">Local admin key</label><input id="admin-key" type="password" value="local-admin-key-change-me" autocomplete="off" spellcheck="false"></div><button id="run" class="run-button">Запустить сценарий <span>↗</span></button></div>
+    <div id="error" class="error" role="alert" hidden></div>
+  </section>
+  <section class="stats"><div class="stat card"><span>БАЛАНС ПОЛЬЗОВАТЕЛЯ</span><div><b id="balance">—</b><small>tokens</small></div><p id="user">Новый пользователь для каждого запуска</p></div><div class="stat card"><span>СУММА ЖУРНАЛА</span><div><b id="ledger-sum">—</b><small>tokens</small></div><p id="invariant">Проверка balance = Σ ledger</p></div><div class="stat card"><span>ФИНАНСОВЫЕ ОПЕРАЦИИ</span><div class="counts"><b id="credit-count">—</b><i>/</i><b id="charge-count">—</b><i>/</i><b id="refund-count">—</b></div><p>Начисления / списания / возвраты</p></div></section>
+  <section class="execution card"><div class="section-heading"><span class="number">02</span><h2>Выполнение задачи</h2><span id="task-status" class="state idle">NOT STARTED</span></div><div id="task-id" class="task-id">Здесь появится ID задачи и история реальных попыток</div><div id="flow" class="flow"><div class="flow-empty">Выберите сбой и запустите проверку.<br><span>Результаты не имитируются в браузере.</span></div></div><div id="result" class="result" hidden></div></section>
+  <div class="details-grid"><section class="card timeline"><div class="section-heading"><span class="number">03</span><h2>События</h2><span class="muted small" id="event-count">0 events</span></div><div id="events" class="event-list"><div class="empty">События появятся после запуска.</div></div></section><section class="card ledger"><div class="section-heading"><span class="number">04</span><h2>Журнал токенов</h2><span class="muted small">append-only</span></div><div class="table-scroll"><table><thead><tr><th>ОПЕРАЦИЯ</th><th>Δ ТОКЕНЫ</th><th>ВРЕМЯ</th></tr></thead><tbody id="ledger"><tr><td colspan="3" class="empty">Пока нет операций.</td></tr></tbody></table></div></section></div>
+  <footer><span>Exactly-once financial effects. At-least-once delivery.</span><span>FAKE PROVIDERS · NO REAL MONEY</span></footer>
+</main></div><script src="/demo/assets/app.js" defer></script>
+</body></html>
