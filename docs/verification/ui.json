@@ -1,0 +1,16 @@
+[
+  {
+    "viewport": "desktop",
+    "width": 1440,
+    "js_errors": [],
+    "horizontal_overflow": false,
+    "fixture": "mock API, not backend validation"
+  },
+  {
+    "viewport": "mobile",
+    "width": 390,
+    "js_errors": [],
+    "horizontal_overflow": false,
+    "fixture": "mock API, not backend validation"
+  }
+]

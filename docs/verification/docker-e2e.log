@@ -1,0 +1,196 @@
+ Image 01testevoeai-beta Building 
+ Image 01testevoeai-migrate Building 
+ Image 01testevoeai-api Building 
+ Image 01testevoeai-alpha Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.90kB done
+#1 DONE 0.0s
+
+#2 [beta internal] load build definition from Dockerfile
+#2 DONE 0.0s
+
+#2 [alpha internal] load build definition from Dockerfile
+#2 transferring dockerfile: 456B done
+#2 DONE 0.0s
+
+#3 [api internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.3s
+
+#4 [migrate internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [alpha 1/9] FROM docker.io/library/python:3.12-slim@sha256:cb33f7f771ecec2ef1225cf39b159591a040391bd73e4c01f00fdfc4c47611d2
+#5 resolve docker.io/library/python:3.12-slim@sha256:cb33f7f771ecec2ef1225cf39b159591a040391bd73e4c01f00fdfc4c47611d2 0.0s done
+#5 DONE 0.0s
+
+#6 [beta internal] load build context
+#6 transferring context: 3.23kB 0.0s done
+#6 transferring context: 3.23kB 0.0s done
+#6 DONE 0.0s
+
+#7 [migrate 2/9] WORKDIR /srv
+#7 CACHED
+
+#8 [migrate 5/9] COPY providers ./providers
+#8 CACHED
+
+#9 [migrate 8/9] COPY . .
+#9 CACHED
+
+#10 [migrate 4/9] COPY app ./app
+#10 CACHED
+
+#11 [migrate 6/9] COPY scripts ./scripts
+#11 CACHED
+
+#12 [migrate 3/9] COPY pyproject.toml ./
+#12 CACHED
+
+#13 [migrate 7/9] RUN pip install --no-cache-dir '.[dev]' && useradd --create-home runner
+#13 CACHED
+
+#14 [migrate 9/9] RUN chown -R runner:runner /srv
+#14 CACHED
+
+#15 [migrate] exporting to image
+#15 exporting layers 0.0s done
+#15 exporting manifest sha256:55cc5be6d92ad71bd767d5fdb157585ae9bf0968ea5d0fd4f94f12cfc0e52f9a done
+#15 exporting config sha256:40075849a164a156a92d7b229b118d65c599916d9f055144298e5845e954ef09 done
+#15 exporting attestation manifest sha256:fdced89ef9036e04f0d417e83214164bf30b3ae32f1f1452343747b60496bb17 0.1s done
+#15 exporting manifest list sha256:6cec0f0ec14a39bdc7b72d3c0be0c4509e9a780a95c79e5e01d54d9db63f89b2
+#15 exporting manifest list sha256:6cec0f0ec14a39bdc7b72d3c0be0c4509e9a780a95c79e5e01d54d9db63f89b2 0.0s done
+#15 naming to docker.io/library/01testevoeai-migrate:latest 0.0s done
+#15 unpacking to docker.io/library/01testevoeai-migrate:latest 0.0s done
+#15 DONE 0.3s
+
+#16 [beta] exporting to image
+#16 exporting layers 0.0s done
+#16 exporting manifest sha256:7ae1ef929c1d22246997a8cddb7bbcc26996a971eec50488991ce0661f0c1e81 done
+#16 exporting config sha256:49f04b4021c227b09c615fd781677a7cdeac3949fefc59202a55b53e9bd0a20f 0.0s done
+#16 exporting attestation manifest sha256:595c9842d3ed5949f1c1b89f23bbc2e4cb814c4bd7aa82f5058c352871fbff9d 0.1s done
+#16 exporting manifest list sha256:cabb5d4640945f373b9e564a71c654453d8980e325686d3d0c230ade3b7e84d1 0.0s done
+#16 naming to docker.io/library/01testevoeai-beta:latest done
+#16 unpacking to docker.io/library/01testevoeai-beta:latest 0.0s done
+#16 DONE 0.3s
+
+#17 [api] exporting to image
+#17 exporting layers 0.0s done
+#17 exporting manifest sha256:1d4f5de0181f7f41687ee788b35eb2e501432c3333e8317bdff0153c6762d934 done
+#17 exporting config sha256:fb06cc8f2c96766e620f92dc692c03159c193c84040c572d379ee9c8bb0123dd done
+#17 exporting attestation manifest sha256:637c9d1ecedeb443a6e94eef6fc768245f4b3f66a35f07745864d3a663cf004a 0.1s done
+#17 exporting manifest list sha256:47e592e3c089545efc6c5e8e479d248e6a45f3e782e225f9ce8e58052ca9f688 0.0s done
+#17 naming to docker.io/library/01testevoeai-api:latest 0.0s done
+#17 unpacking to docker.io/library/01testevoeai-api:latest 0.0s done
+#17 DONE 0.3s
+
+#18 [alpha] exporting to image
+#18 exporting layers 0.0s done
+#18 exporting manifest sha256:add5a63fd049420a1848cbf15b5565b2afb8d800b518e3a05804a44416babf5d done
+#18 exporting config sha256:a78800cbba76217d18d37ca6fe37a99dc8c89167923bdc9a5e45d9e9883fe04c 0.0s done
+#18 exporting attestation manifest sha256:c67ce4e4cf0387c23d564cadbd2f591406f277d434e19c5a750049bc27a0b1d1 0.1s done
+#18 exporting manifest list sha256:36b8c19e404b8b137f9dd59e0c3dcbc7652001aab70ef5ca971b78634e00c2ed 0.0s done
+#18 naming to docker.io/library/01testevoeai-alpha:latest 0.0s done
+#18 unpacking to docker.io/library/01testevoeai-alpha:latest 0.0s done
+#18 DONE 0.3s
+
+#19 [migrate] resolving provenance for metadata file
+#19 DONE 0.2s
+
+#20 [api] resolving provenance for metadata file
+#20 DONE 0.1s
+
+#21 [beta] resolving provenance for metadata file
+#21 DONE 0.1s
+
+#22 [alpha] resolving provenance for metadata file
+#22 DONE 0.0s
+ Image 01testevoeai-migrate Built 
+ Image 01testevoeai-alpha Built 
+ Image 01testevoeai-api Built 
+ Image 01testevoeai-beta Built 
+ Container 01testevoeai-api-1 Running 
+ Container 01testevoeai-alpha-1 Running 
+ Container 01testevoeai-beta-1 Running 
+ Container 01testevoeai-db-1 Running 
+ Container 01testevoeai-db-1 Waiting 
+ Container 01testevoeai-db-1 Healthy 
+ Container 01testevoeai-migrate-1 Starting 
+ Container 01testevoeai-migrate-1 Started 
+ Container 01testevoeai-migrate-1 Waiting 
+ Container 01testevoeai-migrate-1 Waiting 
+ Container 01testevoeai-migrate-1 Waiting 
+ Container 01testevoeai-migrate-1 Exited 
+ Container 01testevoeai-migrate-1 Exited 
+ Container 01testevoeai-migrate-1 Exited 
+ Image 01testevoeai-e2e Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.28kB done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 456B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/9] FROM docker.io/library/python:3.12-slim@sha256:cb33f7f771ecec2ef1225cf39b159591a040391bd73e4c01f00fdfc4c47611d2
+#5 resolve docker.io/library/python:3.12-slim@sha256:cb33f7f771ecec2ef1225cf39b159591a040391bd73e4c01f00fdfc4c47611d2 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 3.23kB 0.0s done
+#6 DONE 0.0s
+
+#7 [7/9] RUN pip install --no-cache-dir '.[dev]' && useradd --create-home runner
+#7 CACHED
+
+#8 [8/9] COPY . .
+#8 CACHED
+
+#9 [3/9] COPY pyproject.toml ./
+#9 CACHED
+
+#10 [4/9] COPY app ./app
+#10 CACHED
+
+#11 [2/9] WORKDIR /srv
+#11 CACHED
+
+#12 [5/9] COPY providers ./providers
+#12 CACHED
+
+#13 [6/9] COPY scripts ./scripts
+#13 CACHED
+
+#14 [9/9] RUN chown -R runner:runner /srv
+#14 CACHED
+
+#15 exporting to image
+#15 exporting layers 0.0s done
+#15 exporting manifest sha256:b7a4bd6d91b208e0f9b526da20784c422d28b2479c5fdc1df00ced891a83135a 0.0s done
+#15 exporting config sha256:4d1cc0221057308e6cb90aec68e924d3e925f7b8211534da046c09369bf3f44f 0.0s done
+#15 exporting attestation manifest sha256:b4b4fa05693a0d50c48aad8a3f32081a99e3e8d63c4dbca4379274ba8242a2ee 0.0s done
+#15 exporting manifest list sha256:73cbe541ee25884e122237fac167dde038d06ce77644130038c47e3cc2385399 0.0s done
+#15 naming to docker.io/library/01testevoeai-e2e:latest done
+#15 unpacking to docker.io/library/01testevoeai-e2e:latest 0.0s done
+#15 DONE 0.2s
+
+#16 resolving provenance for metadata file
+#16 DONE 0.0s
+ Image 01testevoeai-e2e Built 
+ Container 01testevoeai-api-1 Waiting 
+ Container 01testevoeai-alpha-1 Waiting 
+ Container 01testevoeai-beta-1 Waiting 
+ Container 01testevoeai-api-1 Healthy 
+ Container 01testevoeai-beta-1 Healthy 
+ Container 01testevoeai-alpha-1 Healthy 
+ Container 01testevoeai-e2e-run-f307551e1f57 Creating 
+ Container 01testevoeai-e2e-run-f307551e1f57 Created 
+............                                                             [100%]
+12 passed in 146.50s (0:02:26)

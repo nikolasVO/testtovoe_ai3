@@ -1,0 +1,50 @@
+...........................................................sssssssssssss [ 63%]
+ssssssssssssssssssssssssssssssssssssssssss                               [100%]
+=========================== short test summary info ============================
+SKIPPED [1] tests/integration/test_properties.py:9: could not import 'hypothesis': No module named 'hypothesis'
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:14: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:22: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:31: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [2] tests/integration/test_concurrency_and_rules.py:39: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:51: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [3] tests/integration/test_concurrency_and_rules.py:60: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:80: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [2] tests/integration/test_concurrency_and_rules.py:96: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:109: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:119: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:133: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:144: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:153: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_concurrency_and_rules.py:160: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [2] tests/integration/test_process_crashes.py:35: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_process_crashes.py:49: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_provider_simulator.py:19: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_provider_simulator.py:31: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_provider_simulator.py:44: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_provider_simulator.py:65: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_provider_simulator.py:77: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:14: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:35: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:47: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [4] tests/integration/test_recovery_and_integrity.py:60: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:74: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:84: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:91: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:98: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:104: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_recovery_and_integrity.py:113: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_required.py:9: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_required.py:20: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_required.py:34: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/integration/test_required.py:49: Set TEST_DATABASE_URL and ALLOW_TEST_DATABASE_RESET=1; use make test for isolated PostgreSQL
+SKIPPED [1] tests/e2e/test_http_stack.py:12: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:23: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:34: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:43: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:50: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [3] tests/e2e/test_http_stack.py:58: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:66: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:77: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:83: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+SKIPPED [1] tests/e2e/test_http_stack.py:96: Set E2E_BASE_URL or run make e2e against the real four-worker stack
+59 passed, 56 skipped in 0.49s
